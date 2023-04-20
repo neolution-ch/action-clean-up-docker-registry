@@ -1,0 +1,24 @@
+name: 'Clean up docker registry'
+author: 'Neolution'
+branding:
+  icon: 'check-circle'
+  color: 'orange'
+description: 'This action will clean up the docker registry by keeping the specified amount of images with the same tag and deleting all the older ones'
+inputs:
+  registryType:
+    description: 'The docker registry type (GoogleContainer/GoogleArtifact/AzureContainer)'
+    required: true
+  dockerImage:
+    description: 'The docker image name'
+    required: true
+  keepLastTags:
+    description: 'Amount of images to keep'
+    required: false
+    default: '0'
+  continueOnError:
+    description: 'Whether to continue even if there are errors'
+    required: false
+    default: 'false'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

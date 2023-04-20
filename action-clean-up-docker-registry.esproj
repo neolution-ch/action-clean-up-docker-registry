@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.78-alpha">
+  <PropertyGroup>
+    <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
+    <CleanCommand>yarn clean</CleanCommand>
+    <BuildCommand>"%PROGRAMFILES%\Git\bin\sh.exe" -c "yarn build"</BuildCommand>
+  </PropertyGroup>
+</Project>

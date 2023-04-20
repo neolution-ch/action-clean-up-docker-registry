@@ -1,0 +1,35 @@
+{
+  "name": "@neolution-ch/action-clean-up-docker-registry",
+  "version": "1.0.0",
+  "description": "This action will clean up the docker registry by keeping the specified amount of images with the same tag and deleting all the older ones",
+  "homepage": "https://github.com/neolution-ch/action-clean-up-docker-registry",
+  "license": "MIT",
+  "author": "Neolution",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "clean": " ",
+    "prelint": "git ls-files | xargs eclint check",
+    "lint": "eslint \"**/*.{ts,tsx}\" --cache --max-warnings 0",
+    "prebuild": "yarn lint",
+    "build": "ncc build src/index.ts --license licenses.txt -o dist && sed -i \"s/\\x0D$//g\" ./dist/index.js",
+    "upgradeAll": "npm-check-updates --packageFile ./package.json -u"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neolution-ch/action-clean-up-docker-registry"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1"
+  },
+  "devDependencies": {
+    "@neolution-ch/eslint-config-neolution": "^1.3.0",
+    "@types/node": "^18.8.3",
+    "@vercel/ncc": "^0.34.0",
+    "eclint": "^2.8.1",
+    "eslint": "^8.25.0",
+    "npm-check-updates": "^16.3.11",
+    "typescript": "^4.8.4"
+  }
+}
